@@ -25,7 +25,6 @@ func exec() error {
 
 	go printLine(f, ch, done)
 
-	// ファイルRead用forループ
 	if err := getLine(f, ch, done); err != nil {
 		return err
 	}
@@ -37,7 +36,7 @@ loop:
 	for {
 		select {
 		case b, ok := <-ch:
-			if !ok { // selectでchanのクローズを検知する方法
+			if !ok {
 				fmt.Println("ch is closed")
 				break loop
 			}
@@ -60,7 +59,7 @@ func getLine(f *os.File, ch chan []byte, done chan bool) error {
 			ch <- buf[0:n]
 		}
 	}
-	close(ch) // ファイル終端でchをcloseする
+	close(ch)
 
 	// 非同期に実行されているゴルーチンの終了を待つ。
 	<-done
