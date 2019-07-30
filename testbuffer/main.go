@@ -6,12 +6,10 @@ import (
 	"os"
 )
 
-
-
 const BUFSIZE = 4096
 
 func main() {
-	if err :=exec("abc.txt"); err!=nil {
+	if err := exec("abc.txt"); err != nil {
 		log.Fatal()
 	}
 }
@@ -19,13 +17,13 @@ func main() {
 func exec(fp string) error {
 	fmt.Println("hoge")
 	f, err := os.Open(fp)
-	if err!=nil {
+	if err != nil {
 		return err
 	}
 
 	fmt.Println("hoge")
 	s, err := f.Stat()
-	if err!=nil {
+	if err != nil {
 		return err
 	}
 

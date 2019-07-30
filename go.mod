@@ -2,4 +2,4 @@ module github.com/NasSilverBullet/practicegolang
 
 go 1.12
 
-require golang.org/x/sync v0.0.0-20190423024810-112230192c58 // indirect
+require github.com/labstack/echo/v4 v4.1.6 // indirect
